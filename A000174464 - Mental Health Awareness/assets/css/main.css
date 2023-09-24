@@ -2404,7 +2404,6 @@ input, select, textarea {
 		.icon.brands:before {
 			font-family: 'Font Awesome 5 Brands';
 		}
-
 /* Image */
 .image {
   border: 0;
@@ -2426,21 +2425,12 @@ input, select, textarea {
   margin-bottom: 1.5em;
 }
 
-/* For small screens, make images fill the entire screen */
+/* For small screens, make images fit within the viewport */
 @media (max-width: 736px) {
   .image {
-    width: 100vw; /* 100% of the viewport width */
-    height: 100vh; /* 100% of the viewport height */
-    margin: 0; /* Remove margin to fill the entire screen */
-    float: none;
-    padding: 0;
-    top: 0;
-  }
-
-  .image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Maintain image aspect ratio and cover the entire container */
+    max-height: 50vh; /* Limit the image height to 50% of the viewport height */
+    margin: 0 auto; /* Center the image horizontally */
   }
 
   .image.left,
