@@ -2415,48 +2415,80 @@ input, select, textarea {
 
 .image img {
   display: block;
+  max-width: 100%; /* Ensure images don't overflow their containers */
+  height: auto; /* Maintain image aspect ratio */
 }
 
-.image.left, .image.right {
-  max-width: 40%;
-}
-
-.image.left img, .image.right img {
-  width: 300px; /* or any other value you want */
-  height: 300px; /* set the same value as width */
-}
-
-.image.left {
-  float: left;
-  padding: 0 1.5em 1em 0;
-  top: 0.25em;
-}
-
-.image.right {
-  float: right;
-  padding: 0 0 1em 1.5em;
-  top: 0.25em;
-}
-
-.image.fit {
-  display: block;
-  margin: 0 0 2em 0;
-  width: 100%;
-}
-
-.image.fit img {
-  width: 100%;
-}
-
+/* Ensure a consistent margin between images on mobile */
+.image.left,
+.image.right,
+.image.fit,
 .image.main {
-  display: block;
-  margin: 0 0 3em 0;
-  width: 100%;
+  margin-bottom: 1.5em;
 }
 
-.image.main img {
-  width: 100%;
+/* For small screens, make images stack vertically */
+@media (max-width: 736px) {
+  .image.left,
+  .image.right,
+  .image.fit,
+  .image.main {
+    max-width: 100%;
+    float: none;
+    padding: 0;
+    top: 0;
+  }
+
+  .image.left,
+  .image.right {
+    width: 100%; /* Expand images to full width on small screens */
+    height: auto;
+  }
 }
+
+/* For larger screens, maintain the original behavior */
+@media (min-width: 737px) {
+  .image.left {
+    float: left;
+    padding: 0 1.5em 1em 0;
+    top: 0.25em;
+    max-width: 40%;
+  }
+
+  .image.right {
+    float: right;
+    padding: 0 0 1em 1.5em;
+    top: 0.25em;
+    max-width: 40%;
+  }
+
+  .image.left img,
+  .image.right img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .image.fit {
+    display: block;
+    margin: 0 0 2em 0;
+    width: 100%;
+  }
+
+  .image.fit img {
+    width: 100%;
+  }
+
+  .image.main {
+    display: block;
+    margin: 0 0 3em 0;
+    width: 100%;
+  }
+
+  .image.main img {
+    width: 100%;
+  }
+}
+
 
 /* List */
 
