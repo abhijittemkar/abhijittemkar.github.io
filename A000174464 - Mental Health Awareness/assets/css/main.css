@@ -2406,7 +2406,6 @@ input, select, textarea {
 		}
 
 /* Image */
-
 .image {
   border: 0;
   display: inline-block;
@@ -2427,22 +2426,28 @@ input, select, textarea {
   margin-bottom: 1.5em;
 }
 
-/* For small screens, make images stack vertically */
+/* For small screens, make images fill the entire screen */
 @media (max-width: 736px) {
-  .image.left,
-  .image.right,
-  .image.fit,
-  .image.main {
-    max-width: 100%;
+  .image {
+    width: 100vw; /* 100% of the viewport width */
+    height: 100vh; /* 100% of the viewport height */
+    margin: 0; /* Remove margin to fill the entire screen */
     float: none;
     padding: 0;
     top: 0;
   }
 
+  .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain image aspect ratio and cover the entire container */
+  }
+
   .image.left,
-  .image.right {
-    width: 100%; /* Expand images to full width on small screens */
-    height: auto;
+  .image.right,
+  .image.fit,
+  .image.main {
+    max-width: 100%;
   }
 }
 
