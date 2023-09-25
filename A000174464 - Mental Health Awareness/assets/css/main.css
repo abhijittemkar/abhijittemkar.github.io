@@ -380,12 +380,13 @@ body {
   margin-bottom: 1.5em;
 }
 
-/* For small screens, make images fit within the viewport */
+/* For small screens, make images appear at the top and fit the screen */
 @media (max-width: 736px) {
   .image {
     width: 100%;
-    max-height: 50vh; /* Limit the image height to 50% of the viewport height */
+    max-height: 100vh; /* Limit the image height to 100% of the viewport height */
     margin: 0 auto; /* Center the image horizontally */
+    display: block; /* Ensure the image takes up the full width */
   }
 
   .image.left,
@@ -395,6 +396,7 @@ body {
     max-width: 100%;
   }
 }
+
 
 /* For larger screens, maintain the original behavior */
 @media (min-width: 737px) {
