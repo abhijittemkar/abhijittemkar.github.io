@@ -381,7 +381,7 @@ body {
 }
 
 /* For small screens, make images appear at the top and fit the screen */
-@media (max-width: 480px) {
+@media (max-width: 736px) {
   .image {
     width: 100%;
     max-height: 100vh; /* Limit the image height to 100% of the viewport height */
