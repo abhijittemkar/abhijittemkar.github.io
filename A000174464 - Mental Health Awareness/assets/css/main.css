@@ -380,11 +380,10 @@ body {
   margin-bottom: 1.5em;
 }
 
-/* For small screens, make images appear at the top and fit the screen */
+/* For small screens, make images appear above the content */
 @media (max-width: 736px) {
   .image {
     width: 100%;
-    max-height: 100vh; /* Limit the image height to 100% of the viewport height */
     margin: 0 auto; /* Center the image horizontally */
     display: block; /* Ensure the image takes up the full width */
   }
@@ -394,9 +393,9 @@ body {
   .image.fit,
   .image.main {
     max-width: 100%;
+    margin-bottom: 1.5em; /* Add a margin below each image */
   }
 }
-
 
 /* For larger screens, maintain the original behavior */
 @media (min-width: 737px) {
