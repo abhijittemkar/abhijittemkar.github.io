@@ -695,13 +695,13 @@ body {
 			}
 
 			ul.pagination li:first-child {
-				width: calc(50% - 2px);
+				width: calc(100% - 2px);
 				text-align: left;
 				padding-right: 0.325em;
 			}
 
 			ul.pagination li:last-child {
-				width: calc(50% - 2px);
+				width: calc(100% - 2px);
 				text-align: right;
 				padding-left: 0.325em;
 			}
