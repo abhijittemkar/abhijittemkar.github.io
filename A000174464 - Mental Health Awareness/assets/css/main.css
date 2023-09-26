@@ -361,82 +361,17 @@ body {
 
 /* Image */
 .image {
-  border: 0;
-  display: inline-block;
-  position: relative;
-}
-
-.image img {
   display: block;
-  max-width: 100%; /* Ensure images don't overflow their containers */
+  max-width: 100%;
   height: auto; /* Maintain image aspect ratio */
 }
 
-/* Ensure a consistent margin between images on mobile */
-.image.left,
-.image.right,
-.image.fit,
-.image.main {
-  margin-bottom: 1.5em;
-}
-
-/* For small screens, make images appear above the content */
+/* For small screens (e.g., mobile devices) */
 @media (max-width: 736px) {
   .image {
     width: 100%;
-    margin: 0 auto; /* Center the image horizontally */
-    display: block; /* Ensure the image takes up the full width */
-  }
-
-  .image.left,
-  .image.right,
-  .image.fit,
-  .image.main {
-    max-width: 100%;
-    margin-bottom: 1.5em; /* Add a margin below each image */
-  }
-}
-
-/* For larger screens, maintain the original behavior */
-@media (min-width: 737px) {
-  .image.left {
-    float: left;
-    padding: 0 1.5em 1em 0;
-    top: 0.25em;
-    max-width: 40%;
-  }
-
-  .image.right {
-    float: right;
-    padding: 0 0 1em 1.5em;
-    top: 0.25em;
-    max-width: 40%;
-  }
-
-  .image.left img,
-  .image.right img {
-    width: 300px;
-    height: 300px;
-  }
-
-  .image.fit {
-    display: block;
-    margin: 0 0 2em 0;
-    width: 100%;
-  }
-
-  .image.fit img {
-    width: 100%;
-  }
-
-  .image.main {
-    display: block;
-    margin: 0 0 3em 0;
-    width: 100%;
-  }
-
-  .image.main img {
-    width: 100%;
+    margin: 0; /* Remove margin */
+    border: none; /* Remove border */
   }
 }
 
