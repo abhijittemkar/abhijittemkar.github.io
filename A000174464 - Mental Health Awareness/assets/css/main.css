@@ -362,13 +362,11 @@ body {
 /* Image */
 .image {
   border: 0;
-  display: inline-block;
   position: relative;
 }
 
 .image img {
   display: block;
-  max-width: 100%; /* Ensure images don't overflow their containers */
   height: auto; /* Maintain image aspect ratio */
 }
 
@@ -386,7 +384,6 @@ body {
     width: 100%;
     max-height: 100vh; /* Limit the image height to 100% of the viewport height */
     margin: 0 auto; /* Center the image horizontally */
-    display: block; /* Ensure the image takes up the full width */
   }
 
   .image.left,
