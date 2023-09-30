@@ -1839,6 +1839,7 @@ body {
 		@media screen and (max-width: 480px) {
 
 			.wrapper.spotlight .inner {
+				display: block;
 			}
 
 			.wrapper.spotlight .image {
