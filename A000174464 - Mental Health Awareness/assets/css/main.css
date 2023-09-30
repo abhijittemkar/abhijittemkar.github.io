@@ -1396,6 +1396,25 @@ body {
 			filter: blur(2px);
 		}
 
+/* Style for the header content */
+.header-content {
+    display: flex; /* Display the logo and h1 in a flex container */
+    align-items: center; /* Center items vertically within the container */
+}
+
+/* Style for the logo */
+.header-logo {
+    max-width: 60px; /* Set the maximum width for the logo */
+    max-height: 100%;
+    margin-right: 10px; /* Add spacing between the logo and the name */
+}
+
+/* Style for the h1 */
+h1 {
+    margin: 0; /* Remove default margin to avoid spacing issues */
+    color: white; /* Set the text color to white */
+    font-size: 24px; /* Adjust the font size as needed */
+}
 
 
 /* Wrapper */
@@ -2023,4 +2042,10 @@ body {
         width: 100%;
         height: 100%;
     }
+
+/* Style for the date picker */
+.ui-datepicker {
+  background-color: black;
+  color: white; /* Set text color to white for visibility */
+}
 
