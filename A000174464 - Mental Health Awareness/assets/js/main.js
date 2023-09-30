@@ -4,6 +4,26 @@ const buttons = document.querySelectorAll('.accordion-button');
 const subcontents = document.querySelectorAll('.subcontent');
 const carets = document.querySelectorAll('.caret');
 
+// Add click event listeners to all buttons
+buttons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        // Toggle the visibility of the associated subcontent
+        subcontents.forEach((subcontent, subIndex) => {
+            if (subIndex !== index) {
+                subcontent.style.maxHeight = null;
+                carets[subIndex].style.transform = 'rotate(0deg)';
+            }
+        });
+        if (subcontents[index].style.maxHeight) {
+            subcontents[index].style.maxHeight = null;
+            carets[index].style.transform = 'rotate(0deg)';
+        } else {
+            subcontents[index].style.maxHeight = subcontents[index].scrollHeight + 'px';
+            carets[index].style.transform = 'rotate(90deg)';
+        }
+    });
+});
+
 
 (function($) {
 
@@ -144,3 +164,4 @@ const carets = document.querySelectorAll('.caret');
 			});
 
 })(jQuery);
+
