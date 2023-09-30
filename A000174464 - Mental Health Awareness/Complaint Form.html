@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Login CAMH</title>
+  <title>Complaint Form CAMH</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
@@ -13,8 +13,21 @@
     }
 
     /* Set font color to black */
-    .input-container input {
+    .input-container input,
+    .input-container textarea {
       color: black;
+    }
+
+    /* Style the toggle switch label */
+    .switch-label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px; /* Adjust margin as needed */
+    }
+
+    /* Style the toggle switch */
+    .switch {
+      margin-left: 10px; /* Adjust margin as needed */
     }
   </style>
 </head>
@@ -25,7 +38,7 @@
 
   <!-- Header -->
   <header id="header">
-    <h1><a href="index.html">CAMH Login</a></h1>
+    <h1><a href="index.html">CAMH Complaint Form</a></h1>
     <nav>
       <a href="#menu">Menu</a>
     </nav>
@@ -48,27 +61,37 @@
   </nav>
 
   <!-- Content -->
-  <body>
   <section id="wrapper">
     <header>
       <div class="inner">
         <img src="images/mental-health-logo.jpg" alt="Logo" class="logo" width="30%" height="30%" />
-        <h2>Login</h2>
-        <div class="input-container">
+        <h2>Complaint Form</h2>
+        <div class="switch-label">
+          <label for="anonymous">Submit complaint anonymously:</label>
+          <div class="switch">
+            <input type="checkbox" id="anonymous" name="anonymous" onclick="toggleInputs()">
+            <label for="anonymous"></label>
+          </div>
+        </div>
+
+        <div class="input-container" id="username-container">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" required>
         </div>
-        <div class="input-container">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
-          <input type="checkbox" id="show-password"> <!-- Add this checkbox -->
-          <label for="show-password">Show Password</label> <!-- Add this label -->
+
+        <div class="input-container" id="receipt-container">
+          <label for="receipt">Receipt number (xx-xxxx-xxx):</label>
+          <input type="text" id="receipt" name="receipt" pattern="[A-Za-z0-9]{2}-[A-Za-z0-9]{4}-[A-Za-z0-9]{3}" required>
         </div>
-        <button type="submit">Login</button>
+        <div class="input-container">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="10" required style="color: black; width: 100%; height: 100vh;"></textarea>
+        </div>
+
+        <button type="submit">Submit</button>
       </div>
     </header>
   </section>
-  </body>
 
   <!-- Scripts -->
   <script src="assets/js/jquery.min.js"></script>
@@ -79,24 +102,19 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    $(document).ready(function() {
-      // Get the password input element
-      var passwordField = $('#password');
+    function toggleInputs() {
+      const usernameContainer = document.getElementById('username-container');
+      const receiptContainer = document.getElementById('receipt-container');
+      const anonymousCheckbox = document.getElementById('anonymous');
 
-      // Get the show/hide password checkbox
-      var showPasswordCheckbox = $('#show-password');
-
-      // Add a change event listener to the checkbox
-      showPasswordCheckbox.on('change', function() {
-        if (showPasswordCheckbox.prop('checked')) {
-          // If the checkbox is checked, change the input type to "text" to show the password
-          passwordField.attr('type', 'text');
-        } else {
-          // If the checkbox is unchecked, change the input type back to "password" to hide the password
-          passwordField.attr('type', 'password');
-        }
-      });
-    });
+      if (anonymousCheckbox.checked) {
+        usernameContainer.style.display = 'none'; // Hide the username input
+        receiptContainer.style.display = 'none'; // Hide the receipt input
+      } else {
+        usernameContainer.style.display = 'block'; // Show the username input
+        receiptContainer.style.display = 'block'; // Show the receipt input
+      }
+    }
   </script>
 </body>
 </html>

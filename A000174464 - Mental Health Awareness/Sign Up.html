@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
   <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
   <style>
     /* Add space between input fields and set font color to black */
     .input-container {
@@ -15,6 +20,25 @@
     /* Set font color to black */
     .input-container input {
       color: black;
+    }
+
+    /* Style for the date picker */
+    .ui-datepicker {
+      background-color: black;
+      color: white; /* Set text color to white for visibility */
+    }
+
+    /* Style for the country select box */
+    select {
+      width: 100%;
+      padding: 10px;
+      color: black;
+    }
+
+    /* Style for the terms and conditions checkbox */
+    .terms-checkbox label {
+      display: block;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -38,9 +62,10 @@
       <ul class="links">
         <li><a href="index.html">Home</a></li>
         <li><a href="generic.html">Generic</a></li>
-        <li><a href="elements.html">Elements</a></li>
+        <li><a href="elem\nts.html">Elements</a></li>
         <li><a href="Log In.html">Log In</a></li>
         <li><a href="Sign Up.html">Sign Up</a></li>
+        <li><a href="Complaint Form.html">Complaint Form</a></li>
       </ul>
       <a href="#" class="close">Close</a>
     </div>
@@ -50,31 +75,51 @@
   <section id="wrapper">
     <header>
       <div class="inner">
+        <img src="images/mental-health-logo.jpg" alt="Logo" class="logo" width="30%" height="30%" />
         <h2>Sign Up</h2>
         <div class="input-container">
           <label for="fullname">Full Name:</label>
           <input type="text" id="fullname" name="fullname" required>
         </div>
         <div class="input-container">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
         </div>
         <div class="input-container">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
+          Date of Birth: <input type="text" id="datepicker">
+          <script>
+            $(function() {
+              $("#datepicker").datepicker({
+                dateFormat: "yy-mm-dd", // Customize the date format if needed
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-100:-18" // Restrict to 18 years or older
+              });
+            });
+          </script>
         </div>
-        <button type="submit">Sign Up</button>
+        <div class="input-container">
+          <label for="country">Country:</label>
+          <select id="country" name="country" required>
+            <option value="">Select Country</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <!-- Add more country options here -->
+          </select>
+        </div>
+        <div class="terms-checkbox">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the <a href="terms_and_conditions.html">Terms and Conditions</a></label>
+        </div>
+        <button type="submit">Register</button>
       </div>
     </header>
   </section>
 
-  <!-- Scripts -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/jquery.scrollex.min.js"></script>
-  <script src="assets/js/browser.min.js"></script>
-  <script src="assets/js/breakpoints.min.js"></script>
-  <script src="assets/js/util.js"></script>
-  <script src="assets/js/main.js"></script>
-
 </body>
 </html>
+<!-- Scripts -->
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/main.js"></script>
